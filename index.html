@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobby Makeup Imut Anggit Fitria</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABLE & RESET --- */
+        :root {
+            --primary: #b06567; /* Dusty Rose */
+            --secondary: #d4a373; /* Gold */
+            --bg-cream: #fffaf5; /* Luxury Cream */
+            --text-dark: #333333;
+            --white: #ffffff;
+            --shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Lato', sans-serif; 
+            line-height: 1.8; 
+            color: var(--text-dark); 
+            background-color: var(--bg-cream); 
+            overflow-x: hidden; 
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--text-dark); }
+        
+        .brand-font {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+        }
+
+        a { text-decoration: none; transition: 0.3s ease; }
+
+        /* --- ANIMASI --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-load { animation: fadeInUp 1s ease-out forwards; opacity: 0; }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(255, 250, 245, 0.95);
+            backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+        }
+
+        .logo { font-size: 2.2em; color: var(--primary); }
+        .nav-links { display: flex; }
+        .nav-links a { margin-left: 25px; color: var(--text-dark); font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- HERO SECTION (HEADER) --- */
+        /* Kode ini SAMA PERSIS dengan request Anda */
+        header {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/gambar1.jpg') center/cover no-repeat;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white); padding: 0 20px;
+        }
+
+        .hero-content { max-width: 900px; margin-top: 60px; }
+
+        header h1 {
+            font-size: 3.5em; margin-bottom: 20px; color: var(--white);
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5); line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.2em; margin-bottom: 40px; font-weight: 300;
+            letter-spacing: 1px; color: #f0f0f0;
+        }
+
+        .btn-hero {
+            padding: 15px 40px; background-color: var(--white); color: var(--text-dark);
+            font-weight: bold; text-transform: uppercase; letter-spacing: 2px;
+            border: 2px solid white; display: inline-block;
+        }
+        .btn-hero:hover { background-color: transparent; color: var(--white); }
+
+        /* --- SECTIONS --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
+        section { margin-bottom: 100px; }
+        
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.8em; color: var(--primary); margin-bottom: 10px; }
+        .divider { width: 60px; height: 3px; background: var(--secondary); margin: 0 auto 30px; }
+
+        /* --- CONTENT STYLES --- */
+        .text-content p { margin-bottom: 20px; font-size: 1.1em; color: #555; text-align: justify; }
+        .text-content p:first-child::first-letter {
+            font-size: 3.5em; float: left; margin-right: 10px; line-height: 0.8; color: var(--primary); font-family: 'Playfair Display';
+        }
+
+        .about-box {
+            background: var(--white); padding: 50px; box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+        
+        .experience-list { list-style: none; margin-top: 20px; }
+        .experience-list li { margin-bottom: 15px; display: flex; align-items: center; }
+        .experience-list li i { color: var(--secondary); margin-right: 15px; font-size: 1.2em; }
+
+        /* --- GALLERY GRID --- */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px;
+        }
+        .gallery-item {
+            position: relative; height: 300px; overflow: hidden; cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;
+        }
+        .gallery-item:hover img { transform: scale(1.15); }
+        .gallery-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(176, 101, 103, 0.85); display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay p { 
+            color: white; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; border: 1px solid white; padding: 8px 15px; font-size: 0.9em;
+        }
+
+        /* --- FOOTER & CONTACT --- */
+        .closing-section { text-align: center; padding: 60px 20px; background: white; margin-top: 50px; }
+        .btn-insta {
+            display: inline-flex; align-items: center; margin-top: 20px; padding: 12px 30px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); 
+            color: white; border-radius: 50px; font-weight: bold; box-shadow: 0 5px 15px rgba(204, 35, 102, 0.4);
+        }
+        .btn-insta:hover { transform: translateY(-3px); }
+
+        footer { background: #222; color: #aaa; padding: 40px 20px; text-align: center; margin-top: 0; }
+        .social-icons a { color: white; font-size: 1.5em; margin: 0 10px; }
+
+        /* ========================================= */
+        /* UPDATE: CSS KHUSUS TAMPILAN HP (MOBILE)   */
+        /* ========================================= */
+        @media (max-width: 768px) {
+            
+            /* 1. Navbar: Menu turun ke bawah logo agar terlihat */
+            nav { flex-direction: column; padding: 10px; }
+            .logo { margin-bottom: 5px; font-size: 1.8em; }
+            .nav-links { 
+                display: flex; /* Menu ditampilkan kembali */
+                gap: 15px; 
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .nav-links a { margin: 0; font-size: 0.8em; padding: 5px; }
+
+            /* 2. Header: Ukuran huruf judul dikecilkan sedikit agar rapi */
+            header h1 { font-size: 2.2em; line-height: 1.3; } 
+            header p { font-size: 1em; padding: 0 10px; }
+            .hero-content { margin-top: 80px; } 
+
+            /* 3. Layout: Padding lebih tipis agar konten luas */
+            .container { padding: 40px 15px; }
+            section { margin-bottom: 60px; }
+            .about-box { padding: 25px; border-left: 3px solid var(--primary); }
+            
+            /* 4. Judul Section */
+            .section-title h2 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo brand-font">Imut anggit fitria</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#hobby">Hobby</a>
+            <a href="#kontak">Kontak</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-content animate-load" style="animation-delay: 0.2s;">
+            <h1>Merias Wajah sebagai Passion dan Bentuk Ekspresi Diri</h1>
+            <p>Mengembangkan keterampilan di bidang makeup sebagai sarana kreativitas, kepercayaan diri, dan peluang di dunia kecantikan.</p>
+            <a href="#intro" class="btn-hero">Baca Pengalaman Saya</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="intro" class="text-content animate-load" style="animation-delay: 0.4s;">
+            <div class="section-title">
+                <h2 class="brand-font">My Journey</h2>
+                <div class="divider"></div>
+            </div>
+            <p>Makeup bukan sekadar mempercantik penampilan, tetapi juga menjadi media untuk mengekspresikan diri dan meningkatkan rasa percaya diri seseorang. Ketertarikan saya terhadap dunia makeup tumbuh dari keinginan untuk membantu orang lain tampil lebih percaya diri di momen-momen penting dalam hidup mereka.</p>
+            <p>Website ini saya buat sebagai ruang personal untuk berbagi perjalanan, pengalaman, serta minat saya di bidang makeup. Melalui website ini, saya ingin mendokumentasikan proses belajar, praktik, dan pengalaman saya sebagai seorang yang memiliki ketertarikan dalam dunia kecantikan, khususnya merias wajah.</p>
+            <p>Bagi saya, merias wajah adalah kombinasi antara seni, ketelitian, dan empati. Setiap wajah memiliki karakter yang unik, dan tugas seorang makeup artist adalah menonjolkan keindahan alami tanpa menghilangkan jati diri seseorang. Ketertarikan ini terus mendorong saya untuk belajar teknik-teknik baru, mengikuti tren, serta mengasah kemampuan agar dapat memberikan hasil terbaik.</p>
+        </section>
+
+        <section id="about" class="animate-load" style="animation-delay: 0.6s;">
+            <div class="section-title">
+                <h2>Tentang Penulis</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="about-box">
+                <h3 style="color: var(--primary); margin-bottom: 20px;">Halo, saya Imut anggit fitria</h3>
+                <p>Seseorang yang memiliki minat dan kemampuan di bidang makeup atau merias wajah. Saya tertarik pada dunia kecantikan karena makeup mampu memberikan perubahan besar, tidak hanya pada penampilan, tetapi juga pada rasa percaya diri seseorang.</p>
+                
+                <h4 style="margin-top: 30px; margin-bottom: 10px;">Minat di Bidang Makeup</h4>
+                <p>Minat saya di dunia makeup berfokus pada riasan untuk acara-acara spesial. Saya menyukai proses mempersiapkan seseorang untuk momen penting dalam hidupnya, di mana makeup menjadi bagian dari kenangan berharga tersebut. Saya senang mencoba berbagai gaya riasan, mulai dari tampilan <strong>natural, soft glam, hingga makeup yang lebih bold</strong> sesuai dengan kebutuhan acara.</p>
+
+                <h4 style="margin-top: 30px; margin-bottom: 10px;">Pengalaman</h4>
+                <p>Beberapa pengalaman yang pernah saya jalani di bidang makeup antara lain:</p>
+                <ul class="experience-list">
+                    <li><i class="fas fa-check-circle"></i> Merias wajah untuk orang wisuda (Graduation Makeup)</li>
+                    <li><i class="fas fa-check-circle"></i> Menjadi makeup artist untuk acara prom night</li>
+                </ul>
+                <p style="margin-top: 15px; font-style: italic;">Pengalaman tersebut memberikan saya banyak pelajaran, baik dari segi teknik, manajemen waktu, maupun cara memahami keinginan klien. Setiap pengalaman menjadi langkah penting dalam perjalanan saya untuk terus berkembang di dunia makeup.</p>
+            </div>
+        </section>
+
+        <section id="hobby" class="animate-load" style="animation-delay: 0.8s;">
+            <div class="section-title">
+                <h2 class="brand-font">My Hobby & Lookbook</h2>
+                <p>Dokumentasi hasil karya dan eksplorasi gaya makeup saya.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 1"><div class="gallery-overlay"><p>Bold Glam</p></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 2"><div class="gallery-overlay"><p>Smokey Eyes</p></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 3"><div class="gallery-overlay"><p>Night Look</p></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503236823255-943088298855?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 4"><div class="gallery-overlay"><p>Editorial</p></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 5"><div class="gallery-overlay"><p>Flawless Skin</p></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515688594390-b649af70d282?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 6"><div class="gallery-overlay"><p>Creative</p></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 7"><div class="gallery-overlay"><p>Tools</p></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583209814683-c023dd293cc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 8"><div class="gallery-overlay"><p>Detail</p></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1576426863848-c2185339f586?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 9"><div class="gallery-overlay"><p>Soft Glam</p></div></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1625093742435-09c6ac094760?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Makeup 10"><div class="gallery-overlay"><p>Products</p></div></div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="closing-section" id="kontak">
+        <h2 class="brand-font" style="font-size: 3em; color: var(--primary);">Terima Kasih</h2>
+        <p style="max-width: 700px; margin: 20px auto;">Melalui website ini, saya berharap dapat terus berbagi perjalanan, pengalaman, serta perkembangan kemampuan saya di bidang makeup, sekaligus menjadikannya sebagai dokumentasi hobby dan motivasi untuk melangkah lebih jauh di dunia kecantikan.</p>
+        
+        <a href="[LINK INSTAGRAM ANDA]" target="_blank" class="btn-insta">
+            <i class="fab fa-instagram" style="margin-right: 10px;"></i> Ikuti Instagram Saya
+        </a>
+    </div>
+
+    <footer>
+        <p style="margin-top: 20px;">&copy; 2024 <span class="brand-font">Imut anggit fitria</span>. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
